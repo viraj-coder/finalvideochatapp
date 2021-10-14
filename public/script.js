@@ -3,7 +3,14 @@ const socket = io("/");
 var peer = new Peer(undefined, {
     path: "/peerjs",
     host: "/",
-    port: "465",
+    port: "443",
+    debug:true,
+    config:{
+        "iceServers": [
+            { url: 'stun:stun.l.google.com:19302' },
+            { url: "turn:13.233.78.148:3478?transport=tcp", "username": "user", "credential": "root" }
+        ]
+    }
 });
 
 const user = prompt("Enter your name");
